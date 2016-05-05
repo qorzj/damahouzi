@@ -1,2 +1,2 @@
 # damahouzi
-the easying and pythonest web framework (extends webpy)
+the easyest and pythonest web framework (extends webpy)
