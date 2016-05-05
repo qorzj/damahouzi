@@ -1,6 +1,4 @@
 import web
-import json
-import re
 import hashlib
 import sqlite3
 from util.param import input_param
@@ -9,8 +7,10 @@ from util.param import input_param
 render = web.template.render
 end = None
 
-def orm(col_csv, values):
-    return web.utils.Storage(dict(zip(col_csv.split(','), values)))
+def orm(col_csv, row):
+    if not row:
+        return None
+    return web.utils.Storage(dict(zip(col_csv.split(','), row)))
 
 
 def one(db_res):
@@ -40,10 +40,9 @@ def need_login(is_need):
             cols = "id,email,fullname"
             row = web.ctx.conn.cursor().execute(
                     'select %s from member where member_id=?' % cols, (token,)).fetchone()
-            me = dict(zip(cols.split(','), row)) if row else None
-            if me is None and is_need:
+            web.ctx.user = orm(cols, row)
+            if web.ctx.user is None and is_need:
                 return web.seeother("/login", True)
-            web.ctx.user = web.utils.Storage(me)
             return g(*a, **b)
         return h
     return f
@@ -64,9 +63,9 @@ def input(*params):
                     
                     for failmsg, f in pair_list(input_param[key][1:]):
                         if it[key] is None:
-                            return ajax({'code':1, 'message':"%s is not given" % key})
+                            return {'code':1, 'message':"%s is not given" % key}
                         if not f(it[key]):
-                            return ajax({'code':1, 'message':failmsg})
+                            return {'code':1, 'message':failmsg}
             return g(*a, **b)
         return h
     return f
