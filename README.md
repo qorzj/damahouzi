@@ -50,7 +50,7 @@ def nature_int_valueof(s):
         return n, None
     return None, {"code": 1, "message": "wrong format!"}
 
-@param.set_valueof("n0", nature_int_valueof)
+param.set_valueof("n0", nature_int_valueof)
 ```
 如果n0类型的参数解析失败，不论是否是必传参数，框架都会直接返回 {"code": 1, "message": "wrong format!", "errorField": input_arg_name}
 
