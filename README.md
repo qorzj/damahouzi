@@ -41,18 +41,25 @@ engine = create_engine('mysql+mysqldb://name:password@ip/table', pool_recycle=36
 ## log(日志)
 ```
 import logging
-def init_logging(path):
+def init_logging(path=''):
     logger = logging.getLogger(__name__)
     if logger.handlers:
         return logger
     logger.setLevel(logging.INFO)
-    handler = logging.FileHandler(path)
+    handler = logging.FileHandler(path) if path else logging.StreamHandler()
     handler.setLevel(logging.INFO)
     formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
     handler.setFormatter(formatter)
     logger.addHandler(handler)
     logger.info("init logging done")
     return logger
+
+logger = init_logging()
+logger.info("hahaha")
+
+#output:
+# 2016-09-27 20:41:42,370 - {fname} - INFO - init logging done
+# 2016-09-27 20:41:42,370 - {fname} - INFO - hehehehe
 ```
 
 ## 代码质量工具
