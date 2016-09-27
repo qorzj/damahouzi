@@ -49,6 +49,7 @@ def init_logging(path=''):
     handler = logging.FileHandler(path) if path else logging.StreamHandler()
     handler.setLevel(logging.INFO)
     formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    #formatter = logging.Formatter('[%(filename)s:%(lineno)s - %(funcName)20s() ] %(message)s')
     handler.setFormatter(formatter)
     logger.addHandler(handler)
     logger.info("init logging done")
