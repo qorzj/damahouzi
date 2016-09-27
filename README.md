@@ -4,7 +4,7 @@ python的web实践：
 * 安装开发环境
 * param组件+web.py框架
 * sqlAlchemy
-* message-queue
+* 消息队列
 * log(日志)
 * 代码质量工具
 
@@ -34,10 +34,14 @@ engine = create_engine('mysql+mysqldb://name:password@ip/table', pool_recycle=36
 * 视频的文本记录： https://github.com/qorzj/damahouzi/blob/master/sqlalchemy_usage.py
 
 ## 代码质量工具
+### google编码规范
+* 参考： http://zh-google-styleguide.readthedocs.io/en/latest/google-python-styleguide/
+
 ### pygenie
 * 作用： 计算代码圈复杂度
 * 用法： pygenie all -v codepath
 * 下载安装： https://github.com/mattvonrocketstein/pygenie
 
 ### nosetests
+* 安装： sudo pip install nose
 * 参考： http://pythontesting.net/framework/nose/nose-introduction/
