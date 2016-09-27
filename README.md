@@ -3,7 +3,7 @@ the easyest and pythonest web framework (extends webpy)
 python的web实践：
 * 安装开发环境
 * param组件+web.py框架
-* sqlAlchemy
+* sqlAlchemy(数据库orm)
 * 消息队列
 * log(日志)
 * 代码质量工具
@@ -58,7 +58,7 @@ param.set_valueof("n0", nature_int_valueof)
 
 "file"类型的变量用法参考： http://webpy.org/cookbook/fileupload
 
-## sqlAlchemy
+## sqlAlchemy(数据库orm)
 * 讲解视频： https://www.youtube.com/watch?v=51RpDZKShiw
 * 视频的文本记录： https://github.com/qorzj/damahouzi/blob/master/sqlalchemy_usage.py
 
