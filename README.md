@@ -32,7 +32,7 @@ engine = create_engine('mysql+mysqldb://name:password@ip/table', pool_recycle=36
 ## param组件+web.py框架
 ```
 import param
-param.input(param_define)
+@param.input(param_define)
 ```
 > param_define格式： input_arg_name->method_arg_name:type*
 
