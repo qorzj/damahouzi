@@ -35,6 +35,11 @@ engine = create_engine('mysql+mysqldb://name:password@ip/table', pool_recycle=36
 * 讲解视频： https://www.youtube.com/watch?v=51RpDZKShiw
 * 视频的文本记录： https://github.com/qorzj/damahouzi/blob/master/sqlalchemy_usage.py
 
+## 消息队列
+* 参考： http://python-rq.org/docs/
+
+## log(日志)
+
 ## 代码质量工具
 google编码规范
 * 参考： http://zh-google-styleguide.readthedocs.io/en/latest/google-python-styleguide/
