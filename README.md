@@ -39,6 +39,21 @@ engine = create_engine('mysql+mysqldb://name:password@ip/table', pool_recycle=36
 * 参考： http://python-rq.org/docs/
 
 ## log(日志)
+```
+import logging
+def init_logging(path):
+    logger = logging.getLogger(__name__)
+    if logger.handlers:
+        return logger
+    logger.setLevel(logging.INFO)
+    handler = logging.FileHandler(path)
+    handler.setLevel(logging.INFO)
+    formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    handler.setFormatter(formatter)
+    logger.addHandler(handler)
+    logger.info("init logging done")
+    return logger
+```
 
 ## 代码质量工具
 google编码规范
