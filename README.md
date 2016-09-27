@@ -35,14 +35,15 @@ import param
 @param.input(param_define)
 ```
 > param_define格式： input_arg_name->method_arg_name:type* (空格分割) ...
-> 例如: ```@param.input("$1->uid:n? name->uname icon:file")```
+
+例如: ```@param.input("$1->uid:n? name->uname icon:file")```
 
 * input_arg_name: 前端请求或URL中的变量名。如果是URL中，则是$1, $2...
 * method_arg_name: 方法定义中的参数名称。如果是前端请求则可以省略。
 * type: 参数类型名称。不填则为默认的字符串类型。
-* 星号: 没有星号代表必传参数，带星号代表非不传。如果带星号又没有传值，则变量值为None
+* 星号: 没有星号代表必传参数，带星号代表非必传。如果是非必传参数又没有传值，则变量值为None
 
-参数类型名称除了"s"和"file"，都需要用param.set_valueof(type_name, valueof_func)来定义。
+参数类型名称除了"s"和"file"，都需要用param.set_valueof(type_name, valueof_func)添加。
 比如要实现自然数类型"n0"，方法如下：
 ```
 def nature_int_valueof(s):
