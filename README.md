@@ -34,7 +34,8 @@ engine = create_engine('mysql+mysqldb://name:password@ip/table', pool_recycle=36
 import param
 @param.input(param_define)
 ```
-> param_define格式： input_arg_name->method_arg_name:type*
+> param_define格式： input_arg_name->method_arg_name:type* (空格分割) ...
+> 例如: ```@param.input("$1->uid:n? name->uname icon:file")```
 
 * input_arg_name: 前端请求或URL中的变量名。如果是URL中，则是$1, $2...
 * method_arg_name: 方法定义中的参数名称。如果是前端请求则可以省略。
@@ -53,6 +54,8 @@ def nature_int_valueof(s):
 param.set_valueof("n0", nature_int_valueof)
 ```
 如果n0类型的参数解析失败，不论是否是必传参数，框架都会直接返回 {"code": 1, "message": "wrong format!", "errorField": input_arg_name}
+
+"file"类型的变量用法参考： http://webpy.org/cookbook/fileupload
 
 ## sqlAlchemy
 * 讲解视频： https://www.youtube.com/watch?v=51RpDZKShiw
