@@ -59,7 +59,7 @@ logger.info("hahaha")
 
 #output:
 # 2016-09-27 20:41:42,370 - {fname} - INFO - init logging done
-# 2016-09-27 20:41:42,370 - {fname} - INFO - hehehehe
+# 2016-09-27 20:41:42,370 - {fname} - INFO - hahaha
 ```
 
 ## 代码质量工具
