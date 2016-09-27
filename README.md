@@ -13,6 +13,8 @@ python的web实践：
 https://www.jetbrains.com/pycharm/download/download-thanks.html?platform=mac&code=PCC
 
 安装oh-my-zsh, brew, pip:
+* oh-my-zsh： https://github.com/robbyrussell/oh-my-zsh
+* brew： http://brew.sh/index.html
 * sudo easy_install pip
 
 安装依赖库:
