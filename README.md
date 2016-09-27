@@ -32,3 +32,7 @@ engine = create_engine('mysql+mysqldb://name:password@ip/table', pool_recycle=36
 ## sqlAlchemy
 * 讲解视频： https://www.youtube.com/watch?v=51RpDZKShiw
 * 视频的文本记录： https://github.com/qorzj/damahouzi/blob/master/sqlalchemy_usage.py
+
+## 代码质量工具
+### nosetests
+http://pythontesting.net/framework/nose/nose-introduction/
