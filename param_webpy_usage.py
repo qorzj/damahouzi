@@ -2,10 +2,20 @@ import json
 import param
 import web
 
+
 app = web.application()
 
 user_info_data = {}
 session_data = {}
+
+
+def password_valueof(s):
+    if not 6 <= len(s) <= 128:
+        return None, {"code": 1, "message": "invalid password length"}
+    return s, None
+
+
+param.set_valueof("password", password_valueof)
 
 
 def json_wrapper(labor):
