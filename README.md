@@ -34,6 +34,8 @@ engine = create_engine('mysql+mysqldb://name:password@ip/table', pool_recycle=36
 import param
 @param.input(param_define)
 ```
+使用范例参考：[damahouzi::param_webpy_usage.py](https://github.com/qorzj/damahouzi/blob/master/param_webpy_usage.py)
+
 > param_define格式： input_arg_name->method_arg_name:type* (空格分割) ...
 
 例如: ```@param.input("$1->uid:n? name->uname icon:file")```
@@ -60,7 +62,7 @@ param.set_valueof("n0", nature_int_valueof)
 
 ## sqlAlchemy(数据库orm)
 * 讲解视频： https://www.youtube.com/watch?v=51RpDZKShiw
-* 视频的文本记录： https://github.com/qorzj/damahouzi/blob/master/sqlalchemy_usage.py
+* 视频的文本记录： [damahouzi::sqlalchemy_usage.py](https://github.com/qorzj/damahouzi/blob/master/sqlalchemy_usage.py)
 
 ## 消息队列
 * 参考： http://python-rq.org/docs/
