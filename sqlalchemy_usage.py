@@ -205,3 +205,5 @@ for row in query:
 
 #EXECUTE SQL
 result = session.execute('SELECT * FROM my_table WHERE my_column = :val', {'val': 5})
+for row in result:
+    print row  #output: (493L, '\xe5\xbc\xa0\xe9\xb9\x8f\xe4\xb8\xbe', '13880775240', 11L, '\xe5\xb7\x9dA824EX', 0L, 1)
