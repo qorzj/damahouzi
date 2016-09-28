@@ -15,7 +15,7 @@ def set_valueof(type_name, valueof_func):
         n = web.intget(s, 0)
         return (n, None) if n > 0 else (None, {"code": 1, "message": "wrong format"})
 
-    @param.set_valueof("n", postv_int_valueof)
+    param.set_valueof("n", postv_int_valueof)
 
     if parse failed, user will get {"code": 1, "message": "wrong format", "errorField": ??} as response
     """
