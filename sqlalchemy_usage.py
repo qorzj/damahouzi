@@ -24,7 +24,7 @@ class UserInfo(Base):
     unit_cost = Column(Numeric(12, 2))
 
 #PERSISTING OUR TABLE
-Base.metadata.create_all(engine)
+Base.metadata.create_all(engine)  #表已存在则忽略，不会清空数据或改变表结构。可以用drop_all()删表。但无法ALTER表结构
 
 #INSERT
 ##ADD A COOKIE
@@ -207,3 +207,24 @@ for row in query:
 result = session.execute('SELECT * FROM my_table WHERE my_column = :val', {'val': 5})
 for row in result:
     print row  #output: (493L, '\xe5\xbc\xa0\xe9\xb9\x8f\xe4\xb8\xbe', '13880775240', 11L, '\xe5\xb7\x9dA824EX', 0L, 1)
+
+##JOIN WITHOUT RELATIONSHIP
+class UserInfo(Base):
+    __tablename__ = 'user'
+    id = Column(Integer, primary_key=True)
+    lpn = Column(String(45))
+
+class Company(Base):
+    __tablename__ = 'company'
+    id = Column(Integer, primary_key=True)
+    companyName = Column(String(50))
+
+query = session.query(UserInfo.id, UserInfo.lpn, Company.companyName).join(Company, UserInfo.id==Company.id)
+for row in query:
+    print row[0], row[1], row[2]
+
+#sql: SELECT user.id AS user_id, user.lpn AS use_lpn, company.`companyName` AS `company_companyName` FROM user INNER JOIN company ON user.id = company.id
+#output: 
+# 1 川A12345 平安
+# 2 川A77777 人保
+#注意: .query()中出现的第一个表名为主查询表，所以.join()第一个参数应该为副查询表，否则会执行出错
