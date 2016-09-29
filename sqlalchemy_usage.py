@@ -208,6 +208,13 @@ result = session.execute('SELECT * FROM my_table WHERE my_column = :val', {'val'
 for row in result:
     print row  #output: (493L, '\xe5\xbc\xa0\xe9\xb9\x8f\xe4\xb8\xbe', '13880775240', 11L, '\xe5\xb7\x9dA824EX', 0L, 1)
 
+##PRIMARY KEY AFTER INSERT
+result = session.execute('insert into user (lpn, carModel) values(:lpn, :model)', {'lpn':'渝B12321', 'model': '00001'})
+print result.lastrowid  #output: 9
+print session.commit()  #output: None
+print [result.lastrowid]  #output: [9L]
+#参考: http://docs.sqlalchemy.org/en/latest/core/connections.html
+    
 ##JOIN WITHOUT RELATIONSHIP
 class UserInfo(Base):
     __tablename__ = 'user'
@@ -228,3 +235,4 @@ for row in query:
 # 1 川A12345 平安
 # 2 川A77777 人保
 #注意: .query()中出现的第一个表名为主查询表，所以.join()第一个参数应该为副查询表，否则会执行出错
+#参考: http://docs.sqlalchemy.org/en/latest/orm/query.html
