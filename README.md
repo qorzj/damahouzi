@@ -68,15 +68,15 @@ param.set_valueof("n0", nature_int_valueof)
 * 参考： http://python-rq.org/docs/
 * 安装： sudo pip install rq
 * 配置redis地址：
-    * 程序中： redis_conn = Redis('192.168.1.135', 6379)
-    * setting.py： REDIS_URL = 'redis://192.168.1.135:6379'
+    * 程序中： ```redis_conn = Redis('192.168.1.135', 6379)```
+    * setting.py： ```REDIS_URL = 'redis://192.168.1.135:6379'```
 * 队列优先级：
-    * 程序中： q = Queue('low', connection=redis_conn)
-    * setting.py： QUEUES = ['high', 'normal', 'low']
+    * 程序中： ```q = Queue('low', connection=redis_conn)```
+    * setting.py： ```QUEUES = ['high', 'normal', 'low']```
     * 如果不区分优先级，setting.py里面应该把此配置注释掉
 * worker：
-    * 启动worker： rq worker -c setting
-    * 监控： rq info -c setting
+    * 启动worker： ```rq worker -c setting```
+    * 监控： ```rq info -c setting```
 * 注意事项：
     * enqueue()传入的函数名必须是从外部导入的
 
