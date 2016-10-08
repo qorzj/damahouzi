@@ -63,6 +63,9 @@ param.set_valueof("n0", nature_int_valueof)
 ## sqlAlchemy(数据库orm)
 * 讲解视频： https://www.youtube.com/watch?v=51RpDZKShiw
 * 视频的文本记录： [damahouzi::sqlalchemy_usage.py](https://github.com/qorzj/damahouzi/blob/master/sqlalchemy_usage.py)
+* Row Object与Dict互转：
+    * row转dict: ```data = (lambda x: (x.pop('_sa_instance_state', True) and x))(row.__dict__.copy())```
+    * dict转row: ```row = UserInfo(**data)```
 
 ## 消息队列
 * 参考： http://python-rq.org/docs/
