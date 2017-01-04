@@ -108,7 +108,7 @@ from sqlalchemy import and_, or_, not_
 query = session.query(Cookie).filter(
     or_(
         Cookie.quantity.between(10, 50),
-        Cookie.cookie_name.conteains('chip')
+        Cookie.cookie_name.contains('chip')
     )
 )
 
