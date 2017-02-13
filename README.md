@@ -17,16 +17,22 @@ https://www.jetbrains.com/pycharm/download/download-thanks.html?platform=mac&cod
 * brew： http://brew.sh/index.html
 * sudo easy_install pip
 
-安装依赖库:
+安装依赖库(python2):
 * sudo pip install web.py
 * brew install mysql
 * sudo pip install mysql-python
 * sudo pip install sqlalchemy
 
+安装依赖库(python3)：
+* sudo pip install web.py
+* sudo pip install mysql-connector
+* sudo pip install sqlalchemy
+
 验证sqlalchemy+mysql是否安装成功：
 ``` 
 from sqlalchemy import create_engine
-engine = create_engine('mysql+mysqldb://name:password@ip/table', pool_recycle=3600) 
+engine = create_engine('mysql+mysqldb://name:password@ip[:port]/table', pool_recycle=3600)   #python2
+engine = create_engine('mysql+mysqlconnector://name:password@ip[:port]/table', pool_recycle=3600)   #python3
 ```
 
 ## param组件+web.py框架
