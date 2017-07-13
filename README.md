@@ -25,7 +25,7 @@ https://www.jetbrains.com/pycharm/download/download-thanks.html?platform=mac&cod
 
 安装依赖库(python3)：
 * sudo pip install web.py
-* sudo pip install mysql-connector
+* sudo pip install mysql-connector==2.1.4
 * sudo pip install sqlalchemy
 
 验证sqlalchemy+mysql是否安装成功：
